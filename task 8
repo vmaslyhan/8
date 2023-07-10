@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+
+
+int main()
+
+{
+    char word[15]; // оголошення масиву для слова
+    while (1) // створення циклу
+    {
+            printf("Enter a word that is less than 15 letters: \n");
+            scanf("%s", word); // зчитування слова з клавіатури
+            int length = strlen(word); // отримання довжини слова
+            if (length > 14)
+        {
+            printf("The word must be less than 15 letters\n");
+            continue;
+        }
+            int count = 1;
+            for (int i = 1; i <= length; i++) // обчислення факторіала для довжини слова
+        {
+            count *= i;
+        }
+            for (int i = 0; i < length; i++) // обчислення кількості
+        {
+            int temp = 1; // оголошення змінної для підрахування повторень кожної букви
+            for (int j = i + 1; j < length; j++)
+            {
+                if (word[i] == word[j])
+                {
+                    temp++;
+                }
+            }
+            count /= temp; // ділення кількості анаграм на кількість повторень кожної букви
+        }
+            printf("The amount of anagrams is %d", count);
+
+        break;
+    }
+    return 0;
+
+}
